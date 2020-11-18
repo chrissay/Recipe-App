@@ -72,5 +72,5 @@ const updateRecipe = (id, updates) => {
 
 recipes = loadRecipes()
 
-export { getRecipes, createRecipe, removeRecipe, updateRecipe }
+export { getRecipes, createRecipe, removeRecipe, updateRecipe, loadRecipes }
 

@@ -97,3 +97,10 @@ body {
 .button--secondary:hover {
   background: #6E6E6E;
 }
+
+/* Note List Item */
+
+.empty-message {
+  text-align: center;
+  margin: 3.2rem 0;
+}

@@ -1,5 +1,5 @@
 import { getFilters } from './filters'
-import { getRecipes, getRecipes } from './recipes'
+import { loadRecipes, getRecipes } from './recipes'
 
 // Generate the DOM structure for a note
 
@@ -31,12 +31,12 @@ const renderRecipes = () => {
     const recipesEl = document.querySelector('#recipes')
     const filters = getFilters()
     const recipes = loadRecipes()
-    const filteredRecipes = recipe.filter((recipe) => recipe.title.toLowerCase().includes(filters.searchText.toLowerCase()))
+    const filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(filters.searchText.toLowerCase()))
 
     recipesEl.innerHTML = ''
 
-    if (filteredrecipes.length > 0) {
-        filteredrecipes.forEach((recipe) => {
+    if (filteredRecipes.length > 0) {
+        filteredRecipes.forEach((recipe) => {
             const recipeEl = generateNoteDOM(recipe)
             recipesEl.appendChild(recipeEl)
         })
