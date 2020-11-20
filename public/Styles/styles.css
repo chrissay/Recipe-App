@@ -98,6 +98,30 @@ body {
   background: #6E6E6E;
 }
 
+/* Note editor */
+
+.title-input {
+  border: 1px solid #DEDFE0;
+  font-size: 2rem;
+  font-weight: 300;
+  display: block;
+  margin: 2.4rem 0;
+  padding: .8rem;
+  width: 100%;
+}
+
+.body-input {
+  border: 1px solid #DEDFE0;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 300;
+  display: block;
+  margin: 2.4rem 0;
+  min-height: 15rem;
+  padding: .8rem;
+  width: 100%;
+}
+
 /* Note List Item */
 
 .empty-message {

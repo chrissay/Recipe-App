@@ -18,7 +18,7 @@ const generateRecipeDOM = (recipe) => {
     recipeEl.appendChild(textEl)
 
     // Setup the link
-    recipeEl.setAttribute('href', `/edit.html#${note.id}`)
+    recipeEl.setAttribute('href', `/edit.html#${recipe.id}`)
     recipeEl.classList.add('list-item')
 
     return recipeEl
@@ -37,7 +37,7 @@ const renderRecipes = () => {
 
     if (filteredRecipes.length > 0) {
         filteredRecipes.forEach((recipe) => {
-            const recipeEl = generateNoteDOM(recipe)
+            const recipeEl = generateRecipeDOM(recipe)
             recipesEl.appendChild(recipeEl)
         })
     } else {

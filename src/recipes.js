@@ -28,7 +28,7 @@ const getRecipes = () => recipes
 const createRecipe = () => {
     const id = uuidv4()
     
-    notes.push({
+    recipes.push({
         id: id,
         title: '',
         body: '',
@@ -38,7 +38,7 @@ const createRecipe = () => {
     return id
 }
 
-// Remove a note from the list
+// Remove a receipe from the list
 
 const removeRecipe = (id) => {
     const recipeIndex = recipes.findIndex((recipe) => recipe.id === id)
@@ -66,7 +66,7 @@ const updateRecipe = (id, updates) => {
         recipe.body = updates.body
     }
 
-    saveRecipe()
+    saveRecipes()
     return recipe
 }
 
