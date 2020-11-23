@@ -1,8 +1,9 @@
 import uuidv4 from 'uuid/v4'
 
 let recipes = []
+let ingredients = []
 
-// Read existing notes from localStorage
+// Read existing recipes from localStorage
 
 const loadRecipes = () => {
     
@@ -15,13 +16,32 @@ const loadRecipes = () => {
     }
 }
 
-// Save the notes to localStorage
+// Read existing ingredients from localStorage
+
+const loadIngredients = () => {
+    
+    const ingredientsJSON = localStorage.getItem('ingredients')
+    
+    try {
+        return ingredientsJSON ? JSON.parse(ingredientsJSON) : []
+    } catch (e) {
+        return []
+    }
+}
+
+// Save the recipes to localStorage
 
 const saveRecipes = () => {
     localStorage.setItem('recipes', JSON.stringify(recipes))
 }
 
-// Expose notes from modules
+// Save the ingredients to localStorage
+
+const saveIngredients = () => {
+    localStorage.setItem('ingredients', JSON.stringify(ingredients))
+}
+
+// Expose recipes from modules
 
 const getRecipes = () => recipes
 
@@ -38,6 +58,21 @@ const createRecipe = () => {
     return id
 }
 
+// Add ingredient
+
+const addIngredient = (text) => {
+    const id = uuidv4()
+    
+    ingredients.push({
+        id: id,
+        text,
+        completed: false,
+    })
+    saveIngredients()
+
+    return id
+}
+
 // Remove a receipe from the list
 
 const removeRecipe = (id) => {
@@ -46,6 +81,17 @@ const removeRecipe = (id) => {
     if (recipeIndex > -1) {
         recipes.splice(recipeIndex, 1)
         saveRecipes()
+    }
+}
+
+// Remove a ingredient from the list
+
+const removeIngredient = (id) => {
+    const ingredientIndex = ingredients.findIndex((ingredient) => ingredient.id === id)
+
+    if (ingredientIndex > -1) {
+        ingredients.splice(ingredientIndex, 1)
+        saveIngredients()
     }
 }
 
@@ -72,5 +118,4 @@ const updateRecipe = (id, updates) => {
 
 recipes = loadRecipes()
 
-export { getRecipes, createRecipe, removeRecipe, updateRecipe, loadRecipes }
-
+export { getRecipes, createRecipe, removeRecipe, updateRecipe, loadRecipes, addIngredient, loadIngredients, saveIngredients, removeIngredient }

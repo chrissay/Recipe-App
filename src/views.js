@@ -1,11 +1,20 @@
 import { getFilters } from './filters'
-import { loadRecipes, getRecipes } from './recipes'
+import { loadRecipes, getRecipes, loadIngredients, removeIngredient } from './recipes'
 
-// Generate the DOM structure for a note
+// Generate the DOM structure for a recipe
+
+// const generateStatusDOM = (incompleteTodos) => {
+//     const summary = document.createElement('h2')
+//     summary.classList.add('list-title')
+//     const plural = incompleteTodos.length === 1 ? '' : 's'
+//     summary.textContent = `You have ${incompleteTodos.length} todo${plural} left.`        
+//     return summary
+// }
 
 const generateRecipeDOM = (recipe) => {
     const recipeEl = document.createElement('a')
     const textEl = document.createElement('p')
+    // const ingredientEl = document.createElement('p')
 
     //Set up the recipe title text
 
@@ -14,18 +23,67 @@ const generateRecipeDOM = (recipe) => {
     } else {
         textEl.textContent = 'Unnamed Recipe'
     }
-    textEl.classList.add('list-item__title')
+    textEl.classList.add('list-item_title')
     recipeEl.appendChild(textEl)
 
     // Setup the link
     recipeEl.setAttribute('href', `/edit.html#${recipe.id}`)
     recipeEl.classList.add('list-item')
 
+    // Setup the status message
+    // ingredientEl.textContent = generateLastEdited(note.updatedAt)
+    // ingredientEl.classList.add('list-item_subtitle')
+    // recipeEl.appendChild(ingredientEl)
+
     return recipeEl
 
 }
 
-// Render application notes
+const generateIngredientDOM = (ingredient) => {
+    const ingredientEl = document.createElement('div')
+    const containerEl = document.createElement('div')
+    const checkbox = document.createElement('input')
+    const ingredientText = document.createElement('span')
+    const removeButton = document.createElement('button')
+
+    // Setup ingredient checkbox
+
+    checkbox.setAttribute('type', 'checkbox')
+    containerEl.appendChild(checkbox)
+    // checkbox.addEventListener('change', () => {
+    //     toggleTodo(todo.id)
+    //     renderTodos()
+    // })
+
+    // Setup ingredient text
+
+    ingredientText.textContent = ingredient.text
+    containerEl.appendChild(ingredientText)
+
+    // Setup container
+    ingredientEl.classList.add('list-item')
+    containerEl.classList.add('list-item_container')
+    ingredientEl.appendChild(containerEl)
+
+    // Setup the 'remove' button
+
+    removeButton.textContent = 'remove'
+    removeButton.classList.add('button', 'button--text')
+    ingredientEl.appendChild(removeButton)
+    removeButton.addEventListener('click', () => {
+        removeIngredient(ingredient.id)
+        renderIngredients()
+    })
+
+    // Setup container
+    ingredientEl.classList.add('list-item')
+    containerEl.classList.add('list-item_container')
+
+    return ingredientEl
+
+}
+
+// Render application recipes
 
 const renderRecipes = () => {
     const recipesEl = document.querySelector('#recipes')
@@ -48,6 +106,20 @@ const renderRecipes = () => {
     }
 }
 
+// Render application ingredients
+
+const renderIngredients = () => {
+    const ingredientsEl = document.querySelector('#add-ingredient')
+    const ingredients = loadIngredients()
+
+    ingredientsEl.innerHTML = ''
+
+    ingredients.forEach((ingredient) => {
+        const ingredientEl = generateIngredientDOM(ingredient)
+        ingredientsEl.appendChild(ingredientEl)
+    })
+}
+
 // Initialize edit page
 
 const initializeEditPage = (recipeId) => {
@@ -64,4 +136,4 @@ const initializeEditPage = (recipeId) => {
     bodyElement.value = recipe.body
 }
 
-export { generateRecipeDOM, renderRecipes, initializeEditPage }
+export { generateRecipeDOM, renderRecipes, initializeEditPage, renderIngredients }

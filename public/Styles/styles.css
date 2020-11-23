@@ -90,28 +90,32 @@ body {
 }
 
 .button--secondary {
-  background: #888888;
-  border-bottom: 2px solid #717171;
+  background: #68d69a;
+  border: none;
+  border-bottom: 2px solid #418560;
+  color: rgb(5, 2, 2);
+  font-size: 1.4rem;
+  font-weight: 300;
 }
 
 .button--secondary:hover {
   background: #6E6E6E;
 }
 
-/* Note editor */
+/* Recipe editor */
 
 .title-input {
   border: 1px solid #DEDFE0;
   font-size: 2rem;
   font-weight: 300;
   display: block;
-  margin: 2.4rem 0;
+  margin: 2.4rem 0; ß
   padding: .8rem;
   width: 100%;
 }
 
 .body-input {
-  border: 1px solid #DEDFE0;
+  border: 1px solid #888888;
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 300;
@@ -122,7 +126,53 @@ body {
   width: 100%;
 }
 
-/* Note List Item */
+/* Recipe List Item */
+
+.list-item {
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  background: #969998;
+  border: 2px solid #68d69a;
+  margin: 1.6rem 0;
+  padding: 1.6rem;
+  display: block;
+  transition: background .3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.list-item_container {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 300;
+  align-items: baseline;
+}
+
+.list-item_container > *:first-child {
+  margin-right: .8rem;
+}
+
+.list-item:hover {
+  background: #eeeeee;
+}
+
+.list-item_title {
+  font-size: 1.8rem;
+  margin-bottom: .4rem
+}
+
+.list-title {
+  margin: 3.2rem 0 1.6rem;
+}
+
+.list-item_subtitle {
+  color: #666;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+}
 
 .empty-message {
   text-align: center;
