@@ -1,5 +1,5 @@
-import { initializeEditPage, renderRecipes, renderIngredients } from './views'
-import { updateRecipe, removeRecipe, addIngredient } from './recipes'
+import { initializeEditPage, renderIngredients } from './views'
+import { updateRecipe, removeRecipe, addIngredient, loadIngredients } from './recipes'
 
 const titleElement = document.querySelector('#recipe-title')
 const bodyElement = document.querySelector('#recipe-body')
@@ -40,6 +40,13 @@ document.querySelector('#add-ingredient').addEventListener('submit', (e) => {
     if (text.length > 0) {
         addIngredient(text)
         renderIngredients()
-        // e.target.elements.text.value = ''        
+        e.target.elements.text.value = ''
+    }
+})
+
+window.addEventListener('storage', (e) => {
+    if (e.key === 'ingredients') {
+        loadIngredients()
+        renderIngredients()
     }
 })

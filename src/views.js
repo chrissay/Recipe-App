@@ -27,6 +27,7 @@ const generateRecipeDOM = (recipe) => {
     recipeEl.appendChild(textEl)
 
     // Setup the link
+
     recipeEl.setAttribute('href', `/edit.html#${recipe.id}`)
     recipeEl.classList.add('list-item')
 
@@ -40,7 +41,7 @@ const generateRecipeDOM = (recipe) => {
 }
 
 const generateIngredientDOM = (ingredient) => {
-    const ingredientEl = document.createElement('div')
+    const ingredientEl = document.createElement('label')
     const containerEl = document.createElement('div')
     const checkbox = document.createElement('input')
     const ingredientText = document.createElement('span')
@@ -61,6 +62,7 @@ const generateIngredientDOM = (ingredient) => {
     containerEl.appendChild(ingredientText)
 
     // Setup container
+    
     ingredientEl.classList.add('list-item')
     containerEl.classList.add('list-item_container')
     ingredientEl.appendChild(containerEl)
@@ -109,7 +111,7 @@ const renderRecipes = () => {
 // Render application ingredients
 
 const renderIngredients = () => {
-    const ingredientsEl = document.querySelector('#add-ingredient')
+    const ingredientsEl = document.querySelector('#ingredients')
     const ingredients = loadIngredients()
 
     ingredientsEl.innerHTML = ''
