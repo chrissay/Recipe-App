@@ -26,8 +26,8 @@ body {
 /* Header */
 
 .header {
-  background: #68d69a;
-  color: rgb(32, 11, 11);
+  background: #5520cf;
+  color: rgb(255, 255, 255);
   padding: 1.6rem 0;
 }
 
@@ -44,7 +44,7 @@ body {
 /* Actions */
 
 .actions {
-    background-color: #F7F7F7;
+    background-color: #b6b4b4;
     border-bottom: 1px solid #dedfe0;
     padding: .8rem
 }
@@ -62,23 +62,38 @@ body {
     justify-content: space-between
 }
 
-/* Form Inputs */
-
-.input {
-  border: 1px solid #DEDFE0;
+.searchtextinput {
+  border: 1px solid #5520cf;
   border-radius: 5px;
   font-size: 1.4rem;
   font-weight: 300;
   height: 3rem;
+  margin: 2.4 rem 0;
   margin-right: .8rem;
-  padding: .4rem .8rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  padding: 1.2rem .8rem;
+}
+
+/* Form Inputs */
+
+.input {
+  border: 1px solid #5520cf;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 3rem;
+  margin: 2.4 rem 0;
+  margin-right: .8rem;
+  margin-top: 1.2rem;
+  margin-bottom: 4.0rem;
+  padding: 1.2rem .8rem;
 }
 
 .button {
-  background: #68d69a;
+  background: #5520cf;
   border: none;
-  border-bottom: 2px solid #418560;
-  color: rgb(5, 2, 2);
+  color: rgb(255, 255, 255);
   font-size: 1.4rem;
   font-weight: 300;
   padding: .8rem;
@@ -86,41 +101,49 @@ body {
 }
 
 .button:hover {
-  background: #396684;
+  background: #7c5bc9;
 }
 
 .button--secondary {
-  background: #68d69a;
+  background: #5520cf;
   border: none;
-  border-bottom: 2px solid #418560;
-  color: rgb(5, 2, 2);
+  color: rgb(255, 255, 255);
   font-size: 1.4rem;
   font-weight: 300;
+  margin-top: 1.2rem;
 }
 
 .button--secondary:hover {
-  background: #6E6E6E;
+  background: #7c5bc9;
 }
 
 /* Recipe editor */
 
 .title-input {
-  border: 1px solid #DEDFE0;
+  border: 2px solid #5520cf;
+  background: #2B292E;
+  color: #eeeeee;
   font-size: 2rem;
   font-weight: 300;
+  margin: 2.4rem;
   display: block;
-  margin: 2.4rem 0; ß
+  margin-left: 0;
+  margin-top: 2.4rem;
+  margin-bottom: 4.0rem;
   padding: .8rem;
   width: 100%;
 }
 
 .body-input {
-  border: 1px solid #888888;
+  border: 2px solid #5520cf;
+  background: #2B292E;
+  color: #eeeeee;
   font-family: inherit;
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 400;
   display: block;
-  margin: 2.4rem 0;
+  margin-bottom: 4.0rem;
+  margin-top: 1.2rem;
   min-height: 15rem;
   padding: .8rem;
   width: 100%;
@@ -130,10 +153,10 @@ body {
 
 .list-item {
   text-decoration: none;
-  color: #000000;
+  color: #eeeeee;
   cursor: pointer;
-  background: #969998;
-  border: 2px solid #68d69a;
+  background: #2B292E;
+  border: 2px solid #5520cf;
   margin: 1.6rem 0;
   padding: 1.6rem;
   display: block;
@@ -145,8 +168,8 @@ body {
 
 .list-item_container {
   display: flex;
-  font-size: 1.8rem;
-  font-weight: 300;
+  font-size: 1.6rem;
+  font-weight: 400;
   align-items: baseline;
 }
 
@@ -155,7 +178,7 @@ body {
 }
 
 .list-item:hover {
-  background: #eeeeee;
+  background: #7c5bc9;
 }
 
 .list-item_title {
